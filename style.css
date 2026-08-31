@@ -2,13 +2,25 @@
    Alapbeállítások
    ========================================================== */
 :root {
-  --color-primary: #b98a6b;
-  --color-primary-dark: #96694c;
-  --color-dark: #2b2420;
-  --color-text: #3a332e;
-  --color-bg: #fdfaf7;
-  --color-bg-alt: #f4ece5;
-  --color-border: #e5d9cd;
+  /* ----------------------------------------------------------
+     A weboldal SZÍNSÉMÁJA — csak ezt a 3 alapszínt kell módosítani
+     ahhoz, hogy az egész oldal színvilága megváltozzon:
+       - navy (sötétkék):  #0d3b66
+       - cream (krém):     #faf0ca
+       - gold (arany):     #f4d35e
+     A --color-primary-dark, --color-bg-alt, --color-border és a
+     --color-text-muted ezekből a fenti 3 színből lettek levezetve
+     (világosítva/sötétítve), nem önálló, kézzel válogatott színek.
+     ---------------------------------------------------------- */
+  --color-primary: #f4d35e;                     /* gold – gombok, kiemelések */
+  --color-primary-dark: #dcb93f;                /* gold sötétebb árnyalata – hover állapot */
+  --color-dark: #0d3b66;                        /* navy – címsorok, lábléc, elsődleges szöveg */
+  --color-text: #0d3b66;                        /* navy – törzsszöveg */
+  --color-text-muted: rgba(13, 59, 102, 0.65);  /* navy, halványítva – másodlagos szöveg */
+  --color-bg: #faf0ca;                          /* cream – fő háttérszín */
+  --color-bg-alt: #f7e6ae;                      /* cream/gold keverék – váltakozó szekció-háttér */
+  --color-border: #ecd99e;                      /* cream/gold keverék – szegélyek */
+
   --font-heading: 'Georgia', 'Times New Roman', serif;
   --font-body: 'Segoe UI', Arial, sans-serif;
   --max-width: 1100px;
@@ -66,7 +78,7 @@ img {
   text-align: center;
   max-width: 600px;
   margin: 0 auto 40px;
-  color: #6b6058;
+  color: var(--color-text-muted);
 }
 
 .btn {
@@ -79,7 +91,7 @@ img {
 
 .btn-primary {
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-dark);
 }
 
 .btn-primary:hover {
@@ -94,7 +106,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(253, 250, 247, 0.95);
+  background: rgba(250, 240, 202, 0.95);
   border-bottom: 1px solid var(--color-border);
   backdrop-filter: blur(4px);
 }
@@ -113,7 +125,9 @@ img {
 }
 
 .logo span {
-  color: var(--color-primary);
+  color: var(--color-dark);
+  font-style: italic;
+  border-bottom: 2px solid var(--color-primary);
 }
 
 .main-nav ul {
@@ -130,7 +144,8 @@ img {
 }
 
 .main-nav a:hover {
-  color: var(--color-primary);
+  color: var(--color-dark);
+  box-shadow: inset 0 -2px 0 var(--color-primary);
 }
 
 .nav-toggle {
@@ -179,7 +194,8 @@ img {
   width: 100%;
   display: flex;
   align-items: center;
-  background: linear-gradient(180deg, rgba(43,36,32,0.55), rgba(43,36,32,0.65));
+  /* Semleges (szín nélküli) sötétítés a fotón, csak a szöveg olvashatósága miatt */
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.55));
 }
 
 .hero-content {
@@ -231,7 +247,7 @@ img {
 }
 
 .service-card {
-  background: #fff;
+  background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 24px;
@@ -249,7 +265,7 @@ img {
 }
 
 .service-desc {
-  color: #6b6058;
+  color: var(--color-text-muted);
   font-size: 0.95rem;
   min-height: 48px;
 }
@@ -257,7 +273,7 @@ img {
 .service-meta {
   margin-top: 14px;
   font-weight: bold;
-  color: var(--color-primary-dark);
+  color: var(--color-dark);
 }
 
 /* ==========================================================
@@ -289,7 +305,8 @@ img {
 }
 
 .hours-table .closed {
-  color: #b95c5c;
+  color: var(--color-text-muted);
+  font-style: italic;
 }
 
 /* ==========================================================
@@ -302,7 +319,7 @@ img {
 .calendar-widget {
   max-width: 420px;
   margin: 0 auto;
-  background: #fff;
+  background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: 12px;
   padding: 20px;
@@ -329,7 +346,7 @@ img {
 
 .calendar-header button:hover {
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-dark);
 }
 
 .calendar-header h3 {
@@ -343,7 +360,7 @@ img {
   grid-template-columns: repeat(7, 1fr);
   text-align: center;
   font-size: 0.8rem;
-  color: #6b6058;
+  color: var(--color-text-muted);
   margin-bottom: 6px;
 }
 
@@ -368,11 +385,11 @@ img {
 }
 
 .calendar-day.past {
-  color: #c9c0b8;
+  color: rgba(13, 59, 102, 0.3);
 }
 
 .calendar-day.closed {
-  color: #c9c0b8;
+  color: rgba(13, 59, 102, 0.3);
   text-decoration: line-through;
 }
 
@@ -384,7 +401,7 @@ img {
 
 .calendar-day.available:hover {
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-dark);
 }
 
 .calendar-day.today {
@@ -397,7 +414,7 @@ img {
   margin-top: 18px;
   min-height: 24px;
   font-weight: 500;
-  color: var(--color-primary-dark);
+  color: var(--color-dark);
 }
 
 /* ==========================================================
@@ -431,7 +448,7 @@ img {
    ========================================================== */
 .site-footer {
   background: var(--color-dark);
-  color: #e7e0d8;
+  color: var(--color-bg);
   padding: 30px 0;
 }
 

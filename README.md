@@ -28,6 +28,7 @@ Töltsd fel ezekkel a nevekkel a saját fotóidat (vagy módosítsd a HTML-ben a
 
 - `images/hero.jpg` – nagy header/hero kép a főoldalon
 - `images/rolunk.jpg` – kép a Rólunk szekcióhoz (pl. a szalon vagy a csapat)
+- `images/favicon.png` – kis ikon a böngésző füléhez (favicon), négyzetes kép ajánlott (pl. 512×512 px)
 
 ## Helyi megnyitás
 
