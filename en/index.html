@@ -7,7 +7,7 @@
   <!-- Cseréld le / töltsd fel a images/favicon.png fájlt a saját logódra/ikonodra -->
   <link rel="icon" type="image/png" href="../images/favicon.png?v=2">
   <link rel="apple-touch-icon" href="../images/favicon.png?v=2">
-  <link rel="stylesheet" href="../style.css?v=3">
+  <link rel="stylesheet" href="../style.css?v=4">
 </head>
 <body>
 
@@ -33,27 +33,13 @@
           <li><a href="#location">Location</a></li>
         </ul>
 
-        <!-- Nyelvválasztó legördülő menü: csak az aktuális nyelv látszik, kattintásra nyílik a lista -->
-        <div class="lang-switch" id="langSwitch">
-          <button class="lang-current" id="langToggle" type="button" aria-haspopup="true" aria-expanded="false">
+        <!-- Nyelvválasztó: csak az aktuális nyelv látszik, kattintásra felugró ablak (modal) nyílik -->
+        <div class="lang-switch">
+          <button class="lang-current" id="langToggle" type="button" aria-haspopup="dialog" aria-expanded="false">
             <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#00247D"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#fff" stroke-width="4"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#CF142B" stroke-width="2"/><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6"/><path d="M15,0 V20 M0,10 H30" stroke="#CF142B" stroke-width="3.6"/></svg>
             EN
             <svg class="chevron" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <div class="lang-dropdown" id="langDropdown">
-            <a class="lang-option" href="../index.html">
-              <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#CE2939"/><rect y="6.67" width="30" height="6.67" fill="#fff"/><rect y="13.34" width="30" height="6.66" fill="#477050"/></svg>
-              HU
-            </a>
-            <a class="lang-option active" href="index.html">
-              <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#00247D"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#fff" stroke-width="4"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#CF142B" stroke-width="2"/><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6"/><path d="M15,0 V20 M0,10 H30" stroke="#CF142B" stroke-width="3.6"/></svg>
-              EN
-            </a>
-            <a class="lang-option" href="../de/index.html">
-              <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#000"/><rect y="6.67" width="30" height="6.67" fill="#DD0000"/><rect y="13.34" width="30" height="6.66" fill="#FFCE00"/></svg>
-              DE
-            </a>
-          </div>
         </div>
       </nav>
     </div>
@@ -303,6 +289,31 @@
     </div>
   </footer>
 
-  <script src="../script.js?v=5"></script>
+  <!-- Nyelvválasztó felugró ablak (modal) -->
+  <div class="lang-modal" id="langModal">
+    <div class="lang-modal-backdrop" id="langModalBackdrop"></div>
+    <div class="lang-modal-box" role="dialog" aria-modal="true" aria-label="Select language">
+      <div class="lang-modal-header">
+        <h3>Select language</h3>
+        <button class="lang-modal-close" id="langModalClose" type="button" aria-label="Close">&times;</button>
+      </div>
+      <div class="lang-modal-list">
+        <a class="lang-modal-option" href="../index.html">
+          <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#CE2939"/><rect y="6.67" width="30" height="6.67" fill="#fff"/><rect y="13.34" width="30" height="6.66" fill="#477050"/></svg>
+          Magyar
+        </a>
+        <a class="lang-modal-option active" href="index.html">
+          <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#00247D"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#fff" stroke-width="4"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#CF142B" stroke-width="2"/><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6"/><path d="M15,0 V20 M0,10 H30" stroke="#CF142B" stroke-width="3.6"/></svg>
+          English
+        </a>
+        <a class="lang-modal-option" href="../de/index.html">
+          <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#000"/><rect y="6.67" width="30" height="6.67" fill="#DD0000"/><rect y="13.34" width="30" height="6.66" fill="#FFCE00"/></svg>
+          Deutsch
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="../script.js?v=6"></script>
 </body>
 </html>

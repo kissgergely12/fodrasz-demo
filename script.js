@@ -14,28 +14,36 @@ mainNav.querySelectorAll('a').forEach(link => {
 });
 
 // ==========================================================
-// Nyelvválasztó legördülő menü
+// Nyelvválasztó felugró ablak (modal)
 // ==========================================================
-const langSwitch = document.querySelector('.lang-switch');
 const langToggle = document.getElementById('langToggle');
+const langModal = document.getElementById('langModal');
+const langModalClose = document.getElementById('langModalClose');
+const langModalBackdrop = document.getElementById('langModalBackdrop');
 
-if (langSwitch && langToggle) {
+if (langToggle && langModal && langModalClose && langModalBackdrop) {
+  const openLangModal = () => {
+    langModal.classList.add('open');
+    langToggle.classList.add('open');
+    langToggle.setAttribute('aria-expanded', 'true');
+  };
+
+  const closeLangModal = () => {
+    langModal.classList.remove('open');
+    langToggle.classList.remove('open');
+    langToggle.setAttribute('aria-expanded', 'false');
+  };
+
   langToggle.addEventListener('click', (event) => {
     event.stopPropagation();
-    const isOpen = langSwitch.classList.toggle('open');
-    langToggle.setAttribute('aria-expanded', isOpen);
+    openLangModal();
   });
 
-  document.addEventListener('click', () => {
-    langSwitch.classList.remove('open');
-    langToggle.setAttribute('aria-expanded', 'false');
-  });
+  langModalClose.addEventListener('click', closeLangModal);
+  langModalBackdrop.addEventListener('click', closeLangModal);
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      langSwitch.classList.remove('open');
-      langToggle.setAttribute('aria-expanded', 'false');
-    }
+    if (event.key === 'Escape') closeLangModal();
   });
 }
 

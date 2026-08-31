@@ -157,7 +157,6 @@ img {
 }
 
 .lang-switch {
-  position: relative;
   padding-left: 16px;
   border-left: 1px solid var(--color-border);
 }
@@ -184,55 +183,106 @@ img {
   transition: transform 0.2s ease;
 }
 
-.lang-switch.open .chevron {
+.lang-current.open .chevron {
   transform: rotate(180deg);
 }
 
-.lang-dropdown {
-  display: none;
-  flex-direction: column;
-  gap: 2px;
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-  min-width: 130px;
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  padding: 6px;
-  box-shadow: 0 12px 28px rgba(13, 59, 102, 0.18);
-  z-index: 50;
-}
-
-.lang-switch.open .lang-dropdown {
-  display: flex;
-}
-
-.lang-option {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--color-dark);
-}
-
-.lang-option:hover {
-  background: var(--color-bg-alt);
-}
-
-.lang-option.active {
-  font-weight: 700;
-  background: var(--color-bg-alt);
-}
-
-.lang-current .flag,
-.lang-option .flag {
+.lang-current .flag {
   width: 20px;
   height: 14px;
   border-radius: 2px;
+  display: block;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(13, 59, 102, 0.15);
+}
+
+/* ==========================================================
+   Nyelvválasztó felugró ablak (modal)
+   position:fixed-del a viewporthoz igazodik, semmilyen szülő
+   overflow-ja nem tudja levágni – mobilon is megbízhatóan
+   középen jelenik meg, nem a fejlécbe ágyazott lenyíló listaként.
+   ========================================================== */
+.lang-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lang-modal.open {
+  display: flex;
+}
+
+.lang-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 59, 102, 0.5);
+}
+
+.lang-modal-box {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  background: var(--color-bg);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 20px 50px rgba(13, 59, 102, 0.3);
+}
+
+.lang-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.lang-modal-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.lang-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--color-dark);
+  cursor: pointer;
+  padding: 2px 6px;
+}
+
+.lang-modal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lang-modal-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.lang-modal-option:hover {
+  background: var(--color-bg-alt);
+}
+
+.lang-modal-option.active {
+  background: var(--color-bg-alt);
+}
+
+.lang-modal-option .flag {
+  width: 26px;
+  height: 18px;
+  border-radius: 3px;
   display: block;
   flex-shrink: 0;
   box-shadow: 0 0 0 1px rgba(13, 59, 102, 0.15);
@@ -687,20 +737,6 @@ img {
     padding: 16px 20px;
     border-left: none;
     border-top: 1px solid var(--color-border);
-  }
-
-  /*
-    Mobilon a legördülő nyelvi lista NEM lehet position:absolute, mert a
-    .main-nav overflow-y:auto/hidden tulajdonsága (a lenyíló animációhoz kell)
-    levágná/eltüntetné, hiába van benne "open" állapot. Ehelyett a normál
-    dokumentumfolyamba tesszük (position:static), így egyszerűen a gomb
-    alatt jelenik meg, és a menü többi részével együtt görgethető is marad.
-  */
-  .lang-dropdown {
-    position: static;
-    margin-top: 10px;
-    box-shadow: none;
-    border-color: var(--color-border);
   }
 
   .about-inner {
