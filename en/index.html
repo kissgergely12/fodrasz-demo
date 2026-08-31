@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selyemhaj Fodrászat</title>
+  <title>Selyemhaj Fodrászat – Hair Salon</title>
   <!-- Cseréld le / töltsd fel a images/favicon.png fájlt a saját logódra/ikonodra -->
-  <link rel="icon" type="image/png" href="images/favicon.png?v=2">
-  <link rel="apple-touch-icon" href="images/favicon.png?v=2">
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="../images/favicon.png?v=2">
+  <link rel="apple-touch-icon" href="../images/favicon.png?v=2">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
       <a href="#home" class="logo">Selyemhaj <span>Fodrászat</span></a>
 
       <!-- Hamburger gomb mobil nézethez -->
-      <button class="nav-toggle" id="navToggle" aria-label="Menü megnyitása">
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
         <span></span>
         <span></span>
         <span></span>
@@ -25,31 +25,31 @@
 
       <nav class="main-nav" id="mainNav">
         <ul>
-          <li><a href="#home">Kezdőlap</a></li>
-          <li><a href="#about">Rólunk</a></li>
-          <li><a href="#services">Szolgáltatások</a></li>
-          <li><a href="#hours">Nyitvatartás</a></li>
-          <li><a href="#booking">Időpontfoglalás</a></li>
-          <li><a href="#location">Megközelíthetőség</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#hours">Hours</a></li>
+          <li><a href="#booking">Booking</a></li>
+          <li><a href="#location">Location</a></li>
         </ul>
 
         <!-- Nyelvválasztó legördülő menü: csak az aktuális nyelv látszik, kattintásra nyílik a lista -->
         <div class="lang-switch" id="langSwitch">
           <button class="lang-current" id="langToggle" type="button" aria-haspopup="true" aria-expanded="false">
-            <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#CE2939"/><rect y="6.67" width="30" height="6.67" fill="#fff"/><rect y="13.34" width="30" height="6.66" fill="#477050"/></svg>
-            HU
+            <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#00247D"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#fff" stroke-width="4"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#CF142B" stroke-width="2"/><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6"/><path d="M15,0 V20 M0,10 H30" stroke="#CF142B" stroke-width="3.6"/></svg>
+            EN
             <svg class="chevron" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="lang-dropdown" id="langDropdown">
-            <a class="lang-option active" href="index.html">
+            <a class="lang-option" href="../index.html">
               <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#CE2939"/><rect y="6.67" width="30" height="6.67" fill="#fff"/><rect y="13.34" width="30" height="6.66" fill="#477050"/></svg>
               HU
             </a>
-            <a class="lang-option" href="en/index.html">
+            <a class="lang-option active" href="index.html">
               <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="20" fill="#00247D"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#fff" stroke-width="4"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#CF142B" stroke-width="2"/><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6"/><path d="M15,0 V20 M0,10 H30" stroke="#CF142B" stroke-width="3.6"/></svg>
               EN
             </a>
-            <a class="lang-option" href="de/index.html">
+            <a class="lang-option" href="../de/index.html">
               <svg class="flag" viewBox="0 0 30 20"><rect width="30" height="6.67" fill="#000"/><rect y="6.67" width="30" height="6.67" fill="#DD0000"/><rect y="13.34" width="30" height="6.66" fill="#FFCE00"/></svg>
               DE
             </a>
@@ -64,39 +64,38 @@
     <div class="hero-overlay">
       <div class="container hero-content">
         <h1>Selyemhaj Fodrászat</h1>
-        <p>Ahol a hajad új fényt kap</p>
-        <a href="#booking" class="btn btn-primary">Időpontot foglalok</a>
+        <p>Where your hair gets a new shine</p>
+        <a href="#booking" class="btn btn-primary">Book an appointment</a>
       </div>
     </div>
     <!-- Cseréld le a images/hero.jpg fájlt a saját header/hero képedre -->
-    <img src="images/hero.jpg" alt="Selyemhaj Fodrászat enteriőr" class="hero-bg">
+    <img src="../images/hero.jpg" alt="Selyemhaj Fodrászat interior" class="hero-bg">
   </section>
 
   <!-- Rólunk szekció -->
   <section id="about" class="section about">
     <div class="container about-inner">
       <div class="about-text">
-        <h2>Rólunk</h2>
+        <h2>About Us</h2>
         <p>
-          A Selyemhaj Fodrászatot 2015-ben nyitottuk meg azzal a céllal, hogy
-          minden vendégünk magabiztosan léphessen ki az ajtón. Csapatunk
-          folyamatosan képezi magát a legújabb hajvágási és festési
-          technikákból, hogy mindig a legfrissebb trendeket kínálhassuk.
+          We opened Selyemhaj Fodrászat in 2015 with one goal: to make sure
+          every guest can walk out of our door feeling confident. Our team
+          trains continuously in the latest cutting and coloring techniques,
+          so we can always offer the freshest trends.
         </p>
         <p>
-          Hiszünk abban, hogy a jó frizura nem csak a külsőről szól, hanem
-          arról az érzésről is, amit ad. Barátságos, nyugodt hangulatú
-          szalonunkban szívesen látunk mindenkit, aki szeretne törődni magával
-          egy kicsit.
+          We believe a great hairstyle isn't just about how it looks, but
+          also about how it makes you feel. Everyone is welcome in our
+          friendly, relaxed salon who wants to treat themselves a little.
         </p>
         <p>
-          Várunk szeretettel egy kávéval és egy jó beszélgetéssel a
-          székünkben!
+          We look forward to welcoming you with a coffee and a good chat in
+          our chair!
         </p>
       </div>
       <div class="about-image">
         <!-- Cseréld le a images/rolunk.jpg fájlt a saját képedre -->
-        <img src="images/rolunk.jpg" alt="A szalon csapata">
+        <img src="../images/rolunk.jpg" alt="The salon team">
       </div>
     </div>
   </section>
@@ -104,38 +103,38 @@
   <!-- Szolgáltatások szekció -->
   <section id="services" class="section services">
     <div class="container">
-      <h2>Szolgáltatások</h2>
-      <p class="section-lead">Az alábbi árak és időtartamok tájékoztató jellegűek.</p>
+      <h2>Services</h2>
+      <p class="section-lead">The prices and durations below are for guidance only.</p>
 
       <div class="services-grid">
         <div class="service-card">
-          <h3>Női hajvágás</h3>
-          <p class="service-desc">Konzultáció, mosás és vágás egyéni stílus alapján.</p>
-          <p class="service-meta"><span class="price">6 500 Ft</span> · <span class="duration">45 perc</span></p>
+          <h3>Women's Haircut</h3>
+          <p class="service-desc">Consultation, wash and cut based on your individual style.</p>
+          <p class="service-meta"><span class="price">6,500 HUF</span> · <span class="duration">45 min</span></p>
         </div>
 
         <div class="service-card">
-          <h3>Férfi hajvágás</h3>
-          <p class="service-desc">Klasszikus vagy modern férfi hajvágás, szükség esetén szakálligazítással.</p>
-          <p class="service-meta"><span class="price">4 000 Ft</span> · <span class="duration">30 perc</span></p>
+          <h3>Men's Haircut</h3>
+          <p class="service-desc">Classic or modern men's haircut, with beard trim if needed.</p>
+          <p class="service-meta"><span class="price">4,000 HUF</span> · <span class="duration">30 min</span></p>
         </div>
 
         <div class="service-card">
-          <h3>Festés / Melírozás</h3>
-          <p class="service-desc">Tő- vagy teljes festés, melírozás, árnyalatválasztással.</p>
-          <p class="service-meta"><span class="price">12 000 Ft-tól</span> · <span class="duration">90–120 perc</span></p>
+          <h3>Coloring / Highlights</h3>
+          <p class="service-desc">Root touch-up or full color, highlights, with shade consultation.</p>
+          <p class="service-meta"><span class="price">From 12,000 HUF</span> · <span class="duration">90–120 min</span></p>
         </div>
 
         <div class="service-card">
-          <h3>Mosás + Szárítás</h3>
-          <p class="service-desc">Frissítő hajmosás és profi eszközökkel történő szárítás, formázás.</p>
-          <p class="service-meta"><span class="price">3 500 Ft</span> · <span class="duration">30 perc</span></p>
+          <h3>Wash + Blow-dry</h3>
+          <p class="service-desc">Refreshing hair wash and professional blow-dry styling.</p>
+          <p class="service-meta"><span class="price">3,500 HUF</span> · <span class="duration">30 min</span></p>
         </div>
 
         <div class="service-card">
-          <h3>Esküvői / Alkalmi frizura</h3>
-          <p class="service-desc">Egyedi, tartós frizura különleges alkalmakra, próbafrizurával.</p>
-          <p class="service-meta"><span class="price">15 000 Ft-tól</span> · <span class="duration">60–90 perc</span></p>
+          <h3>Wedding / Special Occasion Hairstyle</h3>
+          <p class="service-desc">Custom, long-lasting hairstyle for special occasions, including a trial run.</p>
+          <p class="service-meta"><span class="price">From 15,000 HUF</span> · <span class="duration">60–90 min</span></p>
         </div>
       </div>
     </div>
@@ -144,16 +143,16 @@
   <!-- Nyitvatartás szekció -->
   <section id="hours" class="section hours">
     <div class="container">
-      <h2>Nyitvatartás</h2>
+      <h2>Opening Hours</h2>
       <table class="hours-table">
         <tbody>
-          <tr><td>Hétfő</td><td class="closed">Zárva</td></tr>
-          <tr><td>Kedd</td><td>9:00 – 18:00</td></tr>
-          <tr><td>Szerda</td><td>9:00 – 18:00</td></tr>
-          <tr><td>Csütörtök</td><td>9:00 – 19:00</td></tr>
-          <tr><td>Péntek</td><td>9:00 – 19:00</td></tr>
-          <tr><td>Szombat</td><td>8:00 – 14:00</td></tr>
-          <tr><td>Vasárnap</td><td class="closed">Zárva</td></tr>
+          <tr><td>Monday</td><td class="closed">Closed</td></tr>
+          <tr><td>Tuesday</td><td>9:00 AM – 6:00 PM</td></tr>
+          <tr><td>Wednesday</td><td>9:00 AM – 6:00 PM</td></tr>
+          <tr><td>Thursday</td><td>9:00 AM – 7:00 PM</td></tr>
+          <tr><td>Friday</td><td>9:00 AM – 7:00 PM</td></tr>
+          <tr><td>Saturday</td><td>8:00 AM – 2:00 PM</td></tr>
+          <tr><td>Sunday</td><td class="closed">Closed</td></tr>
         </tbody>
       </table>
     </div>
@@ -162,21 +161,21 @@
   <!-- Időpontfoglalás szekció (egyelőre csak vizuális naptár, backend nélkül) -->
   <section id="booking" class="section booking">
     <div class="container">
-      <h2>Időpontfoglalás</h2>
+      <h2>Book an Appointment</h2>
       <p class="section-lead">
-        Ez egyelőre egy demó naptár – a tényleges online foglalási rendszer
-        hamarosan érkezik. Addig kérjük, hívj minket telefonon egy időpont
-        egyeztetéséhez!
+        This is currently just a demo calendar – our real online booking
+        system is coming soon. Until then, please give us a call to arrange
+        an appointment!
       </p>
 
       <div class="calendar-widget">
         <div class="calendar-header">
-          <button id="prevMonth" aria-label="Előző hónap">&#8249;</button>
+          <button id="prevMonth" aria-label="Previous month">&#8249;</button>
           <h3 id="calendarTitle"></h3>
-          <button id="nextMonth" aria-label="Következő hónap">&#8250;</button>
+          <button id="nextMonth" aria-label="Next month">&#8250;</button>
         </div>
         <div class="calendar-weekdays">
-          <span>H</span><span>K</span><span>Sze</span><span>Cs</span><span>P</span><span>Szo</span><span>V</span>
+          <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
         </div>
         <div class="calendar-grid" id="calendarGrid"></div>
       </div>
@@ -189,12 +188,12 @@
   <!--
     A cím mindkét helyen (iframe src és a gomb href-je) ugyanaz:
     "Kossuth Lajos tér 1-3, 1055 Budapest" – ha módosítod a valódi címre,
-    mindkét helyen cseréld le ugyanarra a szövegre.
+    mindkét helyen cseréld le ugyanarra a szövegre (mindhárom nyelvi fájlban).
   -->
   <section id="location" class="section location">
     <div class="container">
-      <h2>Megközelíthetőség</h2>
-      <p class="section-lead">Kossuth Lajos tér 1-3, 1055 Budapest</p>
+      <h2>Find Us</h2>
+      <p class="section-lead">Kossuth Lajos tér 1-3, 1055 Budapest, Hungary</p>
 
       <div class="map-wrapper">
         <iframe
@@ -205,7 +204,7 @@
           allowfullscreen
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Selyemhaj Fodrászat térképen">
+          title="Selyemhaj Fodrászat on the map">
         </iframe>
       </div>
 
@@ -215,7 +214,7 @@
           href="https://www.google.com/maps/dir/?api=1&destination=Kossuth Lajos tér 1-3, 1055 Budapest"
           target="_blank"
           rel="noopener noreferrer">
-          Útvonaltervezés indítása
+          Get Directions
         </a>
       </div>
     </div>
@@ -229,10 +228,10 @@
         Elérhetőségek: cseréld le az Instagram/Facebook linkeket a saját
         profilodra, a WhatsApp és telefon href-eket pedig a saját, valódi
         telefonszámodra (nemzetközi formátumban, '+' és szóközök nélkül,
-        pl. 36301234567).
+        pl. 36301234567). Mindhárom nyelvi fájlban ugyanígy!
       -->
       <div class="footer-contact">
-        <h3>Elérhetőségek</h3>
+        <h3>Contact</h3>
         <div class="contact-links">
           <a class="contact-link" href="https://www.instagram.com/selyemhajfodraszat" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -258,7 +257,7 @@
             <span>Messenger</span>
           </a>
 
-          <a class="contact-link" href="https://wa.me/36205184355?text=Szia%2C%20szeretn%C3%A9k%20id%C5%91pontot%20foglalni" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <a class="contact-link" href="https://wa.me/36205184355?text=Hi%2C%20I%27d%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 20l1.2-4.2A8 8 0 1 1 8.4 19L4 20z"></path>
               <path d="M8.7 9.6c.3 2.6 2.3 4.6 4.9 4.9"></path>
@@ -266,7 +265,7 @@
             <span>WhatsApp</span>
           </a>
 
-          <a class="contact-link" href="tel:+36301234567" aria-label="Telefon">
+          <a class="contact-link" href="tel:+36301234567" aria-label="Phone">
             <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
               <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8z"></path>
             </svg>
@@ -275,11 +274,11 @@
         </div>
       </div>
 
-      <p>&copy; <span id="year"></span> Selyemhaj Fodrászat. Minden jog fenntartva.</p>
-      <p>Kossuth Lajos tér 1-3, 1055 Budapest</p>
+      <p>&copy; <span id="year"></span> Selyemhaj Fodrászat. All rights reserved.</p>
+      <p>Kossuth Lajos tér 1-3, 1055 Budapest, Hungary</p>
     </div>
   </footer>
 
-  <script src="script.js?v=3"></script>
+  <script src="../script.js?v=3"></script>
 </body>
 </html>

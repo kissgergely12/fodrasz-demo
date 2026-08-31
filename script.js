@@ -14,6 +14,32 @@ mainNav.querySelectorAll('a').forEach(link => {
 });
 
 // ==========================================================
+// Nyelvválasztó legördülő menü
+// ==========================================================
+const langSwitch = document.querySelector('.lang-switch');
+const langToggle = document.getElementById('langToggle');
+
+if (langSwitch && langToggle) {
+  langToggle.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const isOpen = langSwitch.classList.toggle('open');
+    langToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  document.addEventListener('click', () => {
+    langSwitch.classList.remove('open');
+    langToggle.setAttribute('aria-expanded', 'false');
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      langSwitch.classList.remove('open');
+      langToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
+// ==========================================================
 // Aktuális év a láblécben
 // ==========================================================
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -32,10 +58,37 @@ const bookingMessage = document.getElementById('bookingMessage');
 const prevMonthBtn = document.getElementById('prevMonth');
 const nextMonthBtn = document.getElementById('nextMonth');
 
-const monthNames = [
-  'Január', 'Február', 'Március', 'Április', 'Május', 'Június',
-  'Július', 'Augusztus', 'Szeptember', 'Október', 'November', 'December'
-];
+// Fordítások: a <html lang="hu|en|de"> attribútum alapján választjuk ki,
+// hogy a naptár JS-ből generált szövegei (hónapnevek, kattintásra megjelenő
+// üzenet) melyik nyelven jelenjenek meg. A statikus szövegek (nav, gombok,
+// stb.) magukban a hu/en/de HTML fájlokban vannak lefordítva.
+const TRANSLATIONS = {
+  hu: {
+    months: ['Január', 'Február', 'Március', 'Április', 'Május', 'Június',
+      'Július', 'Augusztus', 'Szeptember', 'Október', 'November', 'December'],
+    demoMessage: (day, month) =>
+      `Ez egy demó naptár – a(z) ${day}. ${month} napra még nem lehet élesben foglalni. ` +
+      `Hívj minket telefonon az időpont egyeztetéséhez!`
+  },
+  en: {
+    months: ['January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'],
+    demoMessage: (day, month) =>
+      `This is a demo calendar – ${month} ${day} can't be booked live yet. ` +
+      `Please call us to arrange your appointment!`
+  },
+  de: {
+    months: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+      'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+    demoMessage: (day, month) =>
+      `Dies ist ein Demo-Kalender – für den ${day}. ${month} kann noch nicht live gebucht werden. ` +
+      `Bitte rufen Sie uns an, um einen Termin zu vereinbaren!`
+  }
+};
+
+const currentLang = TRANSLATIONS[document.documentElement.lang] ? document.documentElement.lang : 'hu';
+const t = TRANSLATIONS[currentLang];
+const monthNames = t.months;
 
 const today = new Date();
 let viewYear = today.getFullYear();
@@ -75,9 +128,7 @@ function renderCalendar(year, month) {
     } else {
       cell.classList.add('available');
       cell.addEventListener('click', () => {
-        bookingMessage.textContent =
-          `Ez egy demó naptár – a(z) ${day}. ${monthNames[month]} napra még nem lehet élesben foglalni. ` +
-          `Hívj minket telefonon az időpont egyeztetéséhez!`;
+        bookingMessage.textContent = t.demoMessage(day, monthNames[month]);
       });
     }
 
