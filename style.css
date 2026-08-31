@@ -508,6 +508,55 @@ img {
 }
 
 /* ==========================================================
+   Cal.com élő foglalási widget fülekkel
+   ========================================================== */
+.cal-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.cal-tab {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.cal-tab:hover {
+  background: var(--color-bg-alt);
+}
+
+.cal-tab.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.cal-embed-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/*
+  Nincs fix magasság: a Cal.com beágyazó szkriptje a saját JS-éből
+  méretezi a konténert a tényleges tartalomhoz. A min-height csak egy
+  betöltés közbeni, a végleges méretnél alacsonyabb helykitöltő, hogy
+  ne ugorjon nagyot az oldal, amíg a widget be nem töltődik.
+*/
+.service-cal {
+  width: 100%;
+  min-height: 400px;
+}
+
+/* ==========================================================
    Megközelíthetőség / Google Maps szekció
    ========================================================== */
 .location {
@@ -613,7 +662,8 @@ img {
   }
 
   .main-nav.open {
-    max-height: 400px;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
   }
 
   .main-nav ul {
@@ -639,10 +689,18 @@ img {
     border-top: 1px solid var(--color-border);
   }
 
+  /*
+    Mobilon a legördülő nyelvi lista NEM lehet position:absolute, mert a
+    .main-nav overflow-y:auto/hidden tulajdonsága (a lenyíló animációhoz kell)
+    levágná/eltüntetné, hiába van benne "open" állapot. Ehelyett a normál
+    dokumentumfolyamba tesszük (position:static), így egyszerűen a gomb
+    alatt jelenik meg, és a menü többi részével együtt görgethető is marad.
+  */
   .lang-dropdown {
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    margin-top: 10px;
+    box-shadow: none;
+    border-color: var(--color-border);
   }
 
   .about-inner {

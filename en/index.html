@@ -7,7 +7,7 @@
   <!-- Cseréld le / töltsd fel a images/favicon.png fájlt a saját logódra/ikonodra -->
   <link rel="icon" type="image/png" href="../images/favicon.png?v=2">
   <link rel="apple-touch-icon" href="../images/favicon.png?v=2">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css?v=3">
 </head>
 <body>
 
@@ -158,29 +158,53 @@
     </div>
   </section>
 
-  <!-- Időpontfoglalás szekció (egyelőre csak vizuális naptár, backend nélkül) -->
+  <!-- Időpontfoglalás szekció: élő Cal.com beágyazott widget -->
   <section id="booking" class="section booking">
     <div class="container">
       <h2>Book an Appointment</h2>
       <p class="section-lead">
-        This is currently just a demo calendar – our real online booking
-        system is coming soon. Until then, please give us a call to arrange
-        an appointment!
+        Choose which service you'd like to book, then pick a day and time
+        that works for you in the calendar.
       </p>
 
-      <div class="calendar-widget">
-        <div class="calendar-header">
-          <button id="prevMonth" aria-label="Previous month">&#8249;</button>
-          <h3 id="calendarTitle"></h3>
-          <button id="nextMonth" aria-label="Next month">&#8250;</button>
-        </div>
-        <div class="calendar-weekdays">
-          <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
-        </div>
-        <div class="calendar-grid" id="calendarGrid"></div>
+      <!--
+        Cal.com élő foglalási widgetek. Új szolgáltatás hozzáadásakor:
+        1. Hozz létre egy új event type-ot a Cal.com-on,
+        2. Kérd le hozzá az "Inline Embed" kódot,
+        3. Adj hozzá egy új <button class="cal-tab"> gombot itt lent,
+        4. Másold be a kapott <div>+<script> párost a többi mellé.
+      -->
+      <div class="cal-tabs">
+        <button class="cal-tab active" data-target="my-cal-inline-noi-hajvagas" type="button">Women's Haircut</button>
+        <button class="cal-tab" data-target="my-cal-inline-ferfi-hajvagas" type="button">Men's Haircut</button>
       </div>
 
-      <p id="bookingMessage" class="booking-message"></p>
+      <div class="cal-embed-wrapper">
+        <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-noi-hajvagas" class="service-cal active"></div>
+        <div style="width:100%;height:100%;overflow:scroll;display:none" id="my-cal-inline-ferfi-hajvagas" class="service-cal"></div>
+      </div>
+
+      <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+
+        Cal("init", "noi-hajvagas", {origin:"https://app.cal.com"});
+        Cal.config = Cal.config || {};
+        Cal.config.forwardQueryParams = true;
+        Cal.ns["noi-hajvagas"]("inline", {
+          elementOrSelector:"#my-cal-inline-noi-hajvagas",
+          config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+          calLink: "selyemhaj/noi-hajvagas",
+        });
+        Cal.ns["noi-hajvagas"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+
+        Cal("init", "ferfi-hajvagas", {origin:"https://app.cal.com"});
+        Cal.ns["ferfi-hajvagas"]("inline", {
+          elementOrSelector:"#my-cal-inline-ferfi-hajvagas",
+          config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"},
+          calLink: "selyemhaj/ferfi-hajvagas",
+        });
+        Cal.ns["ferfi-hajvagas"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+      </script>
     </div>
   </section>
 
@@ -279,6 +303,6 @@
     </div>
   </footer>
 
-  <script src="../script.js?v=3"></script>
+  <script src="../script.js?v=5"></script>
 </body>
 </html>
